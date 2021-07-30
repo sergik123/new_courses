@@ -1,5 +1,5 @@
 <?php
-define('MAX_NUMBER',100);
+define('MAX_NUMBER',1000);
 function resheto($n){
     if($n==0 || $n==1) return false;
     for($i=2; $i*$i<=$n; $i++){
