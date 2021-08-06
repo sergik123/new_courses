@@ -4,25 +4,19 @@ function fizz_buzz($name,$file){
     $res=explode(' ',$name);
     if(count($res)>=3){
         fwrite($file,"\r\n".'исходная строка '.$name."\r\n");
-        $i=0;
-        array_map(function ($n)use($i,$file){
-            $fizz=$n[0];
-            $buzz=$n[1];
-            $next=$n[2];
-
-         while($i<$next){
-                $i++;
-                if($i%$fizz==0 && $i%$buzz==0){
+        $fizz=$res[0];
+        $buzz=$res[1];
+        array_map(function ($n)use($fizz,$buzz,$file){
+                if($n%$fizz==0 && $n%$buzz==0){
                     fwrite($file,' FB ');
-                }elseif($i%$fizz==0){
+                }elseif($n%$fizz==0){
                     fwrite($file,' F ');
-                }elseif($i%$buzz==0){
+                }elseif($n%$buzz==0){
                     fwrite($file,' B ');
                 }else{
-                    fwrite($file,' '.$i.' ');
+                    fwrite($file,' '.$n.' ');
                 }
-        }
-        },array($res));
+        },range(1,$res[2]));
         fwrite($file,"\r\n");
     }
 }
