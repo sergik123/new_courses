@@ -1,0 +1,7 @@
+SELECT name, title, genre from authors inner join authors_books on authors.id=authors_books.author_id
+    inner join books on books.id=authors_books.book_id
+     inner join genres on genres.id=books.genre_id;
+
+ SELECT name, title, genre from authors left join authors_books on authors.id=authors_books.author_id
+     left join books on books.id=authors_books.book_id
+     left join genres on genres.id=books.genre_id;
