@@ -1,6 +1,6 @@
 ```
 
-1. Создать таблицу
+1. РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -10,15 +10,15 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 );
 
-1.1 Наполнение таблицы
+1.1 РќР°РїРѕР»РЅРµРЅРёРµ С‚Р°Р±Р»РёС†С‹
 
 INSERT INTO users(gender,name,email) VALUES ("m", "Vasya", "mmm@mail.ru"), ("m", "Alex", "mmm@gmail.com"), ("m", "Alexey", "alexey@gmail.com"),("f", "Helen", "hell@gmail.com"),("f", "Jenny", "eachup@gmail.com"),("f", "Lora", "tpicks@gmail.com");
 
-2. Подсчет количества мальчиков и девочек
+2. РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РјР°Р»СЊС‡РёРєРѕРІ Рё РґРµРІРѕС‡РµРє
 
  SELECT IF(gender="m", CONCAT("We have ",COUNT(gender)," boys"),CONCAT("We have ",COUNT(gender)," girls")) as Count_people FROM users GROUP BY gender;
 
-3. Вывод имени и email по каждому человеку
+3. Р’С‹РІРѕРґ РёРјРµРЅРё Рё email РїРѕ РєР°Р¶РґРѕРјСѓ С‡РµР»РѕРІРµРєСѓ
 
  SELECT IF(gender="m", CONCAT("This is ",name, ", he has email ",email), CONCAT("This is ",name ,", she has email ",email)) as info_people FROM users;
 
