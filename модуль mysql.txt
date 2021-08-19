@@ -1,0 +1,25 @@
+```
+
+1. Создать таблицу
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gender` varchar(100) NOT NULL DEFAULT '',
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `email` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+);
+
+1.1 Наполнение таблицы
+
+INSERT INTO users(gender,name,email) VALUES ("m", "Vasya", "mmm@mail.ru"), ("m", "Alex", "mmm@gmail.com"), ("m", "Alexey", "alexey@gmail.com"),("f", "Helen", "hell@gmail.com"),("f", "Jenny", "eachup@gmail.com"),("f", "Lora", "tpicks@gmail.com");
+
+2. Подсчет количества мальчиков и девочек
+
+ SELECT IF(gender="m", CONCAT("We have ",COUNT(gender)," boys"),CONCAT("We have ",COUNT(gender)," girls")) as Count_people FROM users GROUP BY gender;
+
+3. Вывод имени и email по каждому человеку
+
+ SELECT IF(gender="m", CONCAT("This is ",name, ", he has email ",email), CONCAT("This is ",name ,", she has email ",email)) as info_people FROM users;
+
+```
