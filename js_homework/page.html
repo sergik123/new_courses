@@ -1,0 +1,130 @@
+<html><head>
+    <meta charset="utf-8">
+    <title>DOM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+        <span class="fs-4">Статьи</span>
+    </header>
+    <div id="filters" class="row bordered">
+        <form id="filter-form" action="#" class="form-horizontal">
+            <div class="row">
+                <div class="col">
+                    <input name="title" placeholder="title" class="form-control" value="">
+                </div>
+                <div class="col">
+                    <select name="order" class="form-select">
+                        <option value="date desc">Сначала новые</option>
+                        <option value="date asc">Сначала старые</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="submit">show</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="catalogue" class="row bordered">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Название</th>
+                <th>Автор</th>
+                <th>Дата</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>PHP book</td>
+                <td>Author 4</td>
+                <td>1986-09-01 01:32:05</td>
+            </tr>
+            <tr>
+                <td>My first article 1</td>
+                <td>Author 1</td>
+                <td>2016-08-28 19:28:35</td>
+            </tr>
+            <tr>
+                <td>My best article 2</td>
+                <td>Author 2</td>
+                <td>2019-08-28 19:28:52</td>
+            </tr>
+            <tr>
+                <td>JS book</td>
+                <td>Author 3</td>
+                <td>2021-09-01 01:31:50</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // (JS + jQuery) В HTML по ссылке page.html найти:
+    // Блок c id=“filters”
+    // Все элементы input, select и button внутри этого блока
+    // Первый option с текстом “Сначала новые” в элементе с name=“order"
+    // Форму form содержащую элемент с name=“order".
+    // Первый div class=“col" в этой форме
+    // Последний div class=“col" в этой форме
+
+    var filters=document.getElementById('filters');
+    console.log(filters);
+
+    var inputs=filters.getElementsByTagName('input');
+    var selects=filters.getElementsByTagName('select');
+    var buttons=filters.getElementsByTagName('button');
+
+    var first=document.querySelector("select[name=order] option").innerHTML;
+
+    var form=document.querySelector("form select[name=order]").outerHTML;
+
+    var form_div=document.querySelector("#filter-form div.col:first-child");
+
+    var form_div1=document.querySelector("#filter-form div.col:last-child");
+
+    console.log(inputs);
+    console.log(selects);
+    console.log(buttons);
+    console.log(first);
+    console.log(form);
+
+    console.log(form_div);
+
+    console.log(form_div1);
+
+    //jquery
+
+    var filters1=$('#filters')[0];
+    console.log(filters1);
+
+    var inputs1=$('#filters input');
+    var selects1=$('#filters select');
+    var buttons1=$('#filters button');
+
+    var first1=$("select[name=order] option")[0].innerHTML;
+
+    var form1=$("form select[name=order]")[0].outerHTML;
+
+    var form_div2=$("#filter-form div.col:first-child");
+
+    var form_div3=$("#filter-form div.col:last-child");
+
+    console.log(inputs1);
+    console.log(selects1);
+    console.log(buttons1);
+    console.log(first1);
+    console.log(form1);
+
+    console.log(form_div2);
+
+    console.log(form_div3);
+
+</script>
+</body>
+</html>

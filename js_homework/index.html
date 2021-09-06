@@ -1,0 +1,113 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<div>Товары:</div>
+<ul>
+    <li>Яблоко</li>
+    <li>Апельсин</li>
+</ul>
+
+<table border="1">
+    <tr>
+        <th>№ п/п</th>
+        <th>Наименование</th>
+        <th>Цена, руб.</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Карандаш цветной</td>
+        <td>20,00</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Линейка 20 см</td>
+        <td>30,00</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Линейка 30 см</td>
+        <td>50,00</td>
+    </tr>
+
+</table>
+
+<ul class="exmpl">
+    <li>first</li>
+    <li>second</li>
+    <li>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+    <li>third</li>
+</ul>
+</body>
+
+<script>
+//---------------------------------------------------------------------------------------------------------
+    //1. Получить <div>, <ul>, <li> с товаром апельсин. (JS + jQuery)
+    console.log(document.body.children[0]);
+    console.log(document.body.children[1]);
+    console.log(document.querySelector('li:last-child').outerHTML);
+//jquery
+    console.log($("body").children()[0]);
+    console.log($("body").children()[1]);
+    console.log($("ul li").last()[0].outerHTML);
+//----------------------------------------------------------------------------------------------------------
+
+    //2. Напишите код, который выделит красным цветом все ячейки в таблице по диагонали. (JS + jQuery)
+    // для нативного js раскоментировать две строки td
+    var td=document.getElementsByTagName('td');
+    var tr=document.getElementsByTagName('tr');
+    for(var i=0; i<td.length; i++){
+        if(i%tr.length==0)
+        {
+            td[i].style.backgroundColor="darkred";
+            td[i].style.color="white";
+        }
+    }
+//jquery
+    var td1=$('td');
+    var tr1=$('tr');
+    for(var j=0; j<td1.length; j++){
+        if(j%tr1.length==0)
+        {
+            td1[j].style.backgroundColor="darkred";
+            td1[j].style.color="white";
+        }
+    }
+//--------------------------------------------------------------------------------------------
+    //3. (JS + jQuery) Есть дерево, структурированное как вложенные списки ul/li.
+    //  Напишите код, который выведет каждый элемент списка <li>:
+    // Какой в нём текст (без поддерева) ?
+    // Какое число потомков – всех вложенных <li> (включая глубоко вложенные)?
+    // Замените внутренний список <ul> на текст “one more second”
+
+    var el=document.querySelectorAll(".exmpl li");
+    for(var i=0; i<el.length;i++){
+        console.log(el[i].innerHTML);
+    }
+    console.log('число потомков '+el.length);
+
+    var el_change=document.querySelectorAll(".exmpl ul");
+    el_change[0].innerHTML='one more second';
+    console.log(el_change);
+
+    //jquery
+    var el1=$(".exmpl li");
+    for(var i=0; i<el1.length;i++){
+        console.log(el1[i].innerHTML);
+    }
+    console.log('число потомков '+el1.length);
+
+    var el_change1=$(".exmpl ul");
+    el_change1[0].innerHTML='one more second1';
+    console.log(el_change1);
+
+
+</script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<input type="button" id="hider" value="Нажмите чтобы спрятать текст">
+<div id="text">Текст</div>
+
+<input type="button" id="hide_btn" value="Кнопка скрывает сама себя при нажатии">
+<script>
+//---------------------------------------------------------------------------------------------
+    // (JS + jQuery) Добавьте JavaScript к кнопке button, чтобы при нажатии
+   // элемент <div id="text"> исчезал.
+   window.onload=function () {
+       var elem=document.getElementById('hider');
+       var status='visible';
+       elem.addEventListener('click',{
+           handleEvent(evt) {
+               if(status=='visible'){
+                   document.getElementById('text').style.visibility='hidden';
+                   elem.value='Нажмите чтобы показать текст';
+               }else{
+                   document.getElementById('text').style.visibility='visible';
+                   elem.value='Нажмите чтобы спрятать текст';
+               }
+               status= document.getElementById('text').style.visibility;
+           }
+       });
+   }
+
+   //jquery
+
+   $(document).ready(function(){
+       var elem=$('#hider');
+       var status='visible';
+       elem.on('click',function(){
+               if(status=='visible'){
+                   $('#text').css('visibility','hidden');
+                   $('#hider').val("Нажмите чтобы показать текст");
+               }else{
+                   $('#text').css('visibility','visible');
+                   $('#hider').val("Нажмите чтобы спрятать текст");
+               }
+               status= $('#text').css('visibility');
+       });
+   });
+
+// ----------------------------------------------------------------------------------------------------
+   //(JS + jQuery) Создайте кнопку, которая будет скрывать себя по нажатию.
+    var btn=document.getElementById('hide_btn');
+   var status1='visible';
+   btn.addEventListener('click',{
+       handleEvent(evt) {
+           if(status1=='visible'){
+               btn.style.visibility='hidden';
+           }
+       }
+   });
+
+   //jquery
+   var btn2=$('#hide_btn');
+   var status1='visible';
+   btn2.on('click',function(){
+           if(status1=='visible'){
+               btn2.css('visibility','hidden');
+           }
+   });
+</script>
+
+</body>
+</html>
